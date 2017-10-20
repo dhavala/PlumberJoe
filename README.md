@@ -1,23 +1,34 @@
 # PlumberJoe
 PlumberJoe is a utility to create a compute graph out of individual compute units. 
 
-Basic Representation:
+## Basic Representation:
 
 Each compute node is takes a source uri (pointing to data, including null) and does some processing and writes to a sink (including a null).
 
 If a compute node's source uri maps to any sink uri of another node, then there will be a directed edge drawn between source node to sink node.
 
-Schema:
+## Schema:
 
 Each compute node needs to have the following:
 
-source.uri: a unique pointer to source data. can be a list
-sink.uri: a unique pointer to sink data. can be a list
-config: optional parameters passed to the executing environment
-cmd: the (shell) script that processes source data and produces sink data by executing a script which can be configured by the config file
+* source.uri: a unique pointer to source data. can be a list
+* sink.uri: a unique pointer to sink data. can be a list
+* config: optional parameters passed to the executing environment
+* cmd: the (shell) script that processes source data and produces sink data by executing a script which can be configured by the config file
+* status: exit statuf of the compute unit
 
+### Example
+`
+{
+  "source.uri": ["data.02.txt"],
+  "cmd": "echo 03 > data.03.txt | cat data.02.txt >> data.03.txt",
+  "sink.uri": ["data.03.txt"],
+  "config": null,
+  "status": 0 
+}
+`
 
-To Do:
+## To Do:
 
 Services planned out of this representation:
 
