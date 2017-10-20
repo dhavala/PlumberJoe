@@ -1,0 +1,7 @@
+{
+  "source.uri": [null],
+  "cmd": "echo 01",
+  "sink.uri": ["data.01.txt"],
+  "config": null,
+  "status": 0 
+}

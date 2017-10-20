@@ -1,0 +1,7 @@
+{
+  "source.uri": ["data.01.txt"],
+  "cmd": "echo 02 > data.02.txt | cat data.01.txt >> data.02.txt",
+  "sink.uri": ["data.02.txt"],
+  "config": null,
+  "status": 0 
+}
